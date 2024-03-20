@@ -19,9 +19,20 @@ export const Category: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const [isLoading, setIsloading] = useState<boolean>(false);
   // console.log(categories);
-  console.log(categories);
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // use local storage to initially populate categories
+  useEffect(() => {
+    const categoryArr: ICategory[] = JSON.parse(
+      localStorage.getItem("categories")!
+    );
+
+    categoryArr.forEach((item) => {
+      if (!categories.includes(item.title))
+        dispatch({ type: "user/add_category", payload: item.title });
+    });
+  }, [dispatch, categories]);
 
   useEffect(() => {
     const page = searchParams.get("page")!;
