@@ -6,7 +6,7 @@ export const fetchUser = async (loginObj: ILoginState) => {
   try {
     const response = await axios({
       method: "post",
-      url: "http://localhost:3001/login",
+      url: "https://roc8-1-backend.onrender.com/login",
       data: loginObj,
     });
 

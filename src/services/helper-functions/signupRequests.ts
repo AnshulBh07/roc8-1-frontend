@@ -5,7 +5,7 @@ export const addUser = async (signupObj: ISignupState) => {
   try {
     const response = await axios({
       method: "post",
-      url: "http://localhost:3001/signup",
+      url: "https://roc8-1-backend.onrender.com/signup",
       data: signupObj,
     });
 
@@ -28,7 +28,7 @@ export const verifyUser = async (otp: string, signupObj: ISignupState) => {
   try {
     const response = await axios({
       method: "post",
-      url: "http://localhost:3001/signup/verify",
+      url: "https://roc8-1-backend.onrender.com/verify",
       data: {
         otp: otp,
         email: signupObj.email,
