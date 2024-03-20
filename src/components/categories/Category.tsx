@@ -68,6 +68,7 @@ export const Category: React.FC = () => {
       );
 
       if (response) {
+        console.log(response.data);
         if (
           response.status === 401 ||
           response.status === 400 ||
@@ -96,6 +97,7 @@ export const Category: React.FC = () => {
       const response = await addCategory(key);
 
       if (response) {
+        console.log(response.data);
         if (
           response.status === 401 ||
           response.status === 400 ||
@@ -110,7 +112,9 @@ export const Category: React.FC = () => {
         dispatch({ type: "user/add_category", payload: key });
         //update local storage too
         const category: ICategory = response.data.result;
-        const categoryArr = JSON.parse(localStorage.getItem("categories")!);
+        const categoryArr: ICategory[] = JSON.parse(
+          localStorage.getItem("categories")!
+        );
 
         localStorage.setItem(
           "categories",

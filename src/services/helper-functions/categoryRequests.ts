@@ -16,7 +16,7 @@ export const addCategory = async (key: string) => {
 
     const response = await axios({
       method: "post",
-      url: "https://roc8-1-backend.onrender.com/add",
+      url: "https://roc8-1-backend.onrender.com/category/add",
       data: { category: key },
     });
 
@@ -49,7 +49,7 @@ export const removeCategory = async (id: number) => {
 
     const response = await axios({
       method: "post",
-      url: "https://roc8-1-backend.onrender.com/remove",
+      url: "https://roc8-1-backend.onrender.com/category/remove",
       data: { id: id },
     });
 
